@@ -18,6 +18,7 @@ class DemoControllerSpec extends Specification {
         then:
         controller.demoService.addStrings(_ as String, _ as String) >> {
             String s1, String s2 ->
+                // the following line causes a compile error after upgrading to Grails 3.3.1
                 assert s1 != s2
                 (s1 + s2).toUpperCase()
         }
